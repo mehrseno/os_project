@@ -533,8 +533,7 @@ procdump(void)
   }
 }
 
-int
-getyear(){
-  
-  return 2;
-}
+// int
+// getyear(){
+//   return 1399;
+// }

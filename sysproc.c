@@ -90,8 +90,10 @@ sys_uptime(void)
   return xticks;
 }
 
- int
- sys_getyear(void)
- {
-  return getyear();
- }
+//  int
+//  sys_getyear(void)
+//  {
+//   return getyear();
+//  }
+
+ 
