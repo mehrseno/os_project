@@ -553,12 +553,12 @@ int allProc(int pid) {
 
     }
     if( i > 0) {
-        cprintf("CHILDES %d:" , pid);
+        cprintf("CHILDES4 %d:" , pid);
         for (int j = 0; j < i ; ++j) {
             cprintf("%d" ,str[j]);
         }
     } else{
-        cprintf("NC:%d" ,pid);
+        cprintf("NC:5 %d" ,pid);
     }
 
     return 1;

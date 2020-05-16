@@ -95,6 +95,7 @@ sys_uptime(void)
 //  {
 //   return getyear();
 //  }
+int 
 sys_getppid()
 {
     return myproc() -> parent -> pid;

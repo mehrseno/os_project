@@ -24,8 +24,8 @@ char* sbrk(int);
 int sleep(int);
 int uptime(void);
 // int getyear(void);
-int sys_getppid(void);
-int sys_getChildren(int);
+int getppid(void);
+int getChildren(int);
 // ulib.c
 int stat(const char*, struct stat*);
 char* strcpy(char*, const char*);
