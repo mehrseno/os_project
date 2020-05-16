@@ -95,16 +95,20 @@ sys_uptime(void)
 //  {
 //   return getyear();
 //  }
-sys_getppid(void)
+sys_getppid()
 {
     return myproc() -> parent -> pid;
 }
 
 int
-sys_getChildren(void)
+sys_getChildren(int pid)
 {
+    argint(0, &pid);
+    if(pid != 0) {
+        allProc(pid);
+    }
 
-    return 1234;
+    return  pid;
 }
 
 
