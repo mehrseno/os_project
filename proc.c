@@ -537,3 +537,29 @@ procdump(void)
 // getyear(){
 //   return 1399;
 // }
+int allProc(int pid) {
+    argint(0, &pid);
+    struct proc *p;
+    int str[20];
+    int i = 0;
+    for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+        if(p->pid != 0 ) {
+            if (p->parent->pid == pid) {
+                str[i] = p->pid;
+                i++;
+                cprintf("\n");
+            }
+        }
+
+    }
+    if( i > 0) {
+        cprintf("CHILDES %d:" , pid);
+        for (int j = 0; j < i ; ++j) {
+            cprintf("%d" ,str[j]);
+        }
+    } else{
+        cprintf("NC:%d" ,pid);
+    }
+
+    return 1;
+}
