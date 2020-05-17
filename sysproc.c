@@ -112,5 +112,10 @@ sys_getChildren(int pid)
     return  pid;
 }
 
-
+int 
+sys_changePolicy(void){
+  int n;
+  if (argint(0, &n) < 0)
+    return -1;
+  return policy(n);
  
