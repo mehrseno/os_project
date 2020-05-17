@@ -7,6 +7,8 @@
 #include "proc.h"
 #include "spinlock.h"
 
+int policyNumber;
+
 struct {
   struct spinlock lock;
   struct proc proc[NPROC];
@@ -563,3 +565,14 @@ int allProc(int pid) {
 
     return 1;
 }
+
+
+policy (int t){
+  if(t < 3 && t >= 0){
+    policyNumber =  t ; 
+    return 1;
+  }
+  return -1;
+}
+
+
