@@ -121,6 +121,7 @@ int             wait(void);
 void            wakeup(void*);
 void            yield(void);
 int             allProc(int pid);
+int             policy(int);
 // int             getyear(void);
 // int getChildren(int);
 // int getppid(void);
