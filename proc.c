@@ -327,7 +327,7 @@ scheduler(void)
   struct proc *p;
   struct cpu *c = mycpu();
   c->proc = 0;
-  if(policyNumber == 0){  
+  if(policyNumber == 0 || policyNumber ==1){  
     for(;;){
       // Enable interrupts on this processor.
       sti();
