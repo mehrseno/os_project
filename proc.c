@@ -7,6 +7,7 @@
 #include "proc.h"
 #include "spinlock.h"
 
+int minPriority (void);
 int policyNumber;
 
 struct {
@@ -86,11 +87,12 @@ allocproc(void)
 
   release(&ptable.lock);
   return 0;
-
+///
 found:
   p->state = EMBRYO;
+  p -> priority = 5;
+  p->changeablePriority = minPriority();
   p->pid = nextpid++;
-
   release(&ptable.lock);
 
   // Allocate kernel stack.
@@ -618,4 +620,16 @@ policy (int t){
   return -1;
 }
 
-
+int minPriority (void){ 
+  struct proc *p;
+  int min = -1 ; 
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+    if(p->state == RUNNABLE){
+      if (min == -1)
+        min = p->changeablePriority;
+      else if(p->changeablePriority > min)
+        min = p->changeablePriority;
+    }
+  }
+  return min;
+}
