@@ -592,30 +592,28 @@ procdump(void)
 //   return 1399;
 // }
 int allProc(int pid) {
-    argint(0, &pid);
-    struct proc *p;
-    int str[20];
-    int i = 0;
-    for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
-        if(p->pid != 0 ) {
-            if (p->parent->pid == pid) {
-                str[i] = p->pid;
-                i++;
-                cprintf("\n");
-            }
-        }
+  struct proc *p;
+  int r = 0 ;
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+    if(p->state == UNUSED)
+      continue;
+    if (p->parent->pid == pid)
+    {
 
-    }
-    if( i > 0) {
-        cprintf("CHILDES4 %d:" , pid);
-        for (int j = 0; j < i ; ++j) {
-            cprintf("%d" ,str[j]);
+        int hold = p->pid;
+        int length = 0 ; 
+        while (hold > 0 ){
+          length++; 
+          hold /=10;
         }
-    } else{
-        cprintf("NC:5 %d" ,pid);
-    }
+        int i; 
+        for (i = 0 ; i <= length ; i++)
+          r *= 10; 
 
-    return 1;
+        r += p->pid;
+    }
+  }
+  return r; 
 }
 
 int

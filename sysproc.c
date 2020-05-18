@@ -102,14 +102,11 @@ sys_getppid()
 }
 
 int
-sys_getChildren(int pid)
-{
-    argint(0, &pid);
-    if(pid != 0) {
-        allProc(pid);
-    }
-
-    return  pid;
+sys_getChildren(void)
+{   int n;
+    if(argint(0, &n) < 0)
+      return -1;
+    return  allProc(myproc() -> pid);
 }
 
 int 

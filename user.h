@@ -25,7 +25,7 @@ int sleep(int);
 int uptime(void);
 // int getyear(void);
 int getppid(void);
-int getChildren(int);
+int getChildren(void);
 int changePolicy (int);
 int changePriority(int);
 // ulib.c
