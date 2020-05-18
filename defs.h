@@ -122,6 +122,7 @@ void            wakeup(void*);
 void            yield(void);
 int             allProc(int pid);
 int             policy(int);
+int             waitForChild(struct timeVariables*);   
 // int             getyear(void);
 // int getChildren(int);
 // int getppid(void);

@@ -134,3 +134,12 @@ sys_changePriority(void)
     return -1;
   }
 }
+
+int
+sys_waitForChild(void)
+{
+  struct timeVariables *tv;
+  if (argptr(1, (void*)&tv, sizeof(*tv)) < 0)
+    return -1;
+  return waitForChild(tv);
+}
