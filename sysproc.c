@@ -118,4 +118,18 @@ sys_changePolicy(void){
   if (argint(0, &n) < 0)
     return -1;
   return policy(n);
- 
+}
+
+int 
+sys_changePriority(void)
+{
+  int n;
+  if (argint(0, &n) < 0)
+    return -1;
+  if (n > 0 && n < 6) 
+  {
+    myproc()->priority = n ; 
+    return 1; 
+  }else{
+    return -1;
+  }

@@ -107,7 +107,7 @@ extern int sys_uptime(void);
 extern int sys_getppid(void);
 extern int sys_getChildren(void);
 extern int sys_changePolicy(void);
-
+extern int sys_changePriority(void);
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
 [SYS_exit]    sys_exit,
@@ -134,7 +134,7 @@ static int (*syscalls[])(void) = {
 [SYS_getppid] sys_getppid,
 [SYS_getChildren] sys_getChildren,
 [SYS_changePolicy]   sys_changePolicy,
-
+[SYS_changePriority] sys_changePriority
 
 };
  

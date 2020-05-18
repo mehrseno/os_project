@@ -125,6 +125,7 @@ int             policy(int);
 // int             getyear(void);
 // int getChildren(int);
 // int getppid(void);
+int             changePriorityFunction(int,int)
 
 // swtch.S
 void            swtch(struct context**, struct context*);
